@@ -14,9 +14,11 @@ const ConviteCard = () => {
 
   useEffect(() => {
     if (typeof window !== "undefined") {
+      const isMobile = window.innerWidth <= 768;
+
       setButtonPos({
-        x: window.innerWidth / 2 + 35,
-        y: window.innerHeight / 2 + 227,
+        x: isMobile ? window.innerWidth / 2 + 35 : window.innerWidth / 2 + 45,
+        y: isMobile ? window.innerHeight / 2 + 227 : window.innerHeight / 2 + 217,
       });
 
       const handleMouseMove = (e: MouseEvent) => {
@@ -32,8 +34,8 @@ const ConviteCard = () => {
           const distance = Math.sqrt(distX ** 2 + distY ** 2);
 
           if (distance < 80) {
-            const newX = prev.x + (distX > 0 ? -20 : 20);
-            const newY = prev.y + (distY > 0 ? -20 : 20);
+            const newX = prev.x + (distX > 0 ? -100 : 100);
+            const newY = prev.y + (distY > 0 ? -100 : 100);
 
             return {
               x: Math.max(0, Math.min(newX, window.innerWidth - 120)),
@@ -55,14 +57,14 @@ const ConviteCard = () => {
 
   const handleConfirmClick = () => {
     window.open(
-      "https://wa.me/5563984999999?text=Confirmo%20minha%20presen%C3%A7a%20na%20sua%20formatura!",
+      "https://wa.me/5563984999013?text=Confirmo%20minha%20presen%C3%A7a%20na%20sua%20formatura!",
       "_blank"
     );
   };
 
   return (
     <div className="relative flex items-center justify-center min-h-screen bg-gray-100">
-      <div className="relative w-96 bg-white rounded-2xl shadow-lg p-6 text-center z-10">
+      <div className="relative w-full max-w-md bg-white rounded-2xl shadow-lg p-6 text-center z-10 mx-4">
         <div className="absolute top-4 left-4 text-blue-600">
           <i className="fas fa-balance-scale fa-2x"></i>
         </div>
