@@ -10,44 +10,52 @@ interface ButtonPosition {
 
 const ConviteCard = () => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
-  const [buttonPos, setButtonPos] = useState<ButtonPosition>({
-    x: window.innerWidth / 2 + 35,
-    y: window.innerHeight / 2 + 234,
-  });
+  const [buttonPos, setButtonPos] = useState<ButtonPosition>({ x: 0, y: 0 });
 
   useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      const mouseX = e.clientX;
-      const mouseY = e.clientY;
+    if (typeof window !== "undefined") {
+      setButtonPos({
+        x: window.innerWidth / 2 + 35,
+        y: window.innerHeight / 2 + 227,
+      });
 
-      const buttonCenterX = buttonPos.x + 60;
-      const buttonCenterY = buttonPos.y + 20;
+      const handleMouseMove = (e: MouseEvent) => {
+        const mouseX = e.clientX;
+        const mouseY = e.clientY;
 
-      const distX = mouseX - buttonCenterX;
-      const distY = mouseY - buttonCenterY;
-      const distance = Math.sqrt(distX ** 2 + distY ** 2);
+        setButtonPos(prev => {
+          const buttonCenterX = prev.x + 60;
+          const buttonCenterY = prev.y + 20;
 
-      if (distance < 80) {
-        const newX = buttonPos.x + (distX > 0 ? -20 : 20);
-        const newY = buttonPos.y + (distY > 0 ? -20 : 20);
+          const distX = mouseX - buttonCenterX;
+          const distY = mouseY - buttonCenterY;
+          const distance = Math.sqrt(distX ** 2 + distY ** 2);
 
-        setButtonPos({
-          x: Math.max(0, Math.min(newX, window.innerWidth - 120)),
-          y: Math.max(0, Math.min(newY, window.innerHeight - 40)),
+          if (distance < 80) {
+            const newX = prev.x + (distX > 0 ? -20 : 20);
+            const newY = prev.y + (distY > 0 ? -20 : 20);
+
+            return {
+              x: Math.max(0, Math.min(newX, window.innerWidth - 120)),
+              y: Math.max(0, Math.min(newY, window.innerHeight - 40)),
+            };
+          }
+
+          return prev;
         });
-      }
-    };
+      };
 
-    window.addEventListener("mousemove", handleMouseMove);
+      window.addEventListener("mousemove", handleMouseMove);
 
-    return () => {
-      window.removeEventListener("mousemove", handleMouseMove);
-    };
-  }, [buttonPos]);
+      return () => {
+        window.removeEventListener("mousemove", handleMouseMove);
+      };
+    }
+  }, []);
 
   const handleConfirmClick = () => {
     window.open(
-      "https://wa.me/5563984999013?text=Confirmo%20minha%20presen%C3%A7a%20na%20sua%20formatura!",
+      "https://wa.me/5563984999999?text=Confirmo%20minha%20presen%C3%A7a%20na%20sua%20formatura!",
       "_blank"
     );
   };
@@ -112,7 +120,7 @@ const ConviteCard = () => {
           </p>
           <button
             onClick={handleConfirmClick}
-            className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition duration-200 mb-2 mt-1"
+            className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition duration-200 mb-4"
           >
             Irei!
           </button>
