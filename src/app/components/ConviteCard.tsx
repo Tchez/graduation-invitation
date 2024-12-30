@@ -63,66 +63,68 @@ const ConviteCard = () => {
   };
 
   return (
-    <div className="relative flex items-center justify-center min-h-screen bg-gray-100">
-      <div className="relative w-full max-w-md bg-white rounded-2xl shadow-lg p-6 text-center z-10 mx-4">
-        <div className="absolute top-4 left-4 text-blue-600">
-          <i className="fas fa-balance-scale fa-2x"></i>
+    <div className="relative flex flex-col items-center justify-center min-h-screen">
+      <div className="relative w-full max-w-md bg-white rounded-3xl shadow-xl p-6 sm:p-8 text-center z-10 mx-2 sm:mx-4 backdrop-blur-lg backdrop-brightness-95 border border-blue-200">
+        <div className="absolute top-2 sm:top-4 left-2 sm:left-4 text-blue-600">
+          <i className="fas fa-balance-scale fa-2x sm:fa-3x"></i>
         </div>
 
         <div className="relative">
-          <i className="fas fa-graduation-cap text-4xl text-gray-600 absolute -top-8 left-1/2 transform -translate-x-1/2"></i>
-          <div className="mt-6">
+          <i className="fas fa-graduation-cap text-4xl sm:text-5xl text-blue-400 absolute -top-8 sm:-top-10 left-1/2 transform -translate-x-1/2"></i>
+          <div className="mt-4 sm:mt-6">
             <Image
               src="https://github.com/tchez.png"
               alt="Foto do Formando (Marco Antônio)"
-              width={120}
-              height={120}
-              className="rounded-full border-4 border-blue-600 mx-auto"
+              width={90}
+              height={90}
+              className="sm:rounded-full sm:border-4 sm:border-blue-600 mx-auto shadow-lg"
             />
           </div>
         </div>
 
-        <div className="mt-4">
-          <h2 className="text-lg font-semibold text-gray-700 tracking-wider">
+        <div className="mt-4 sm:mt-6">
+          <h2 className="text-sm sm:text-lg font-semibold text-gray-600 tracking-wider">
             FORMATURA DE
           </h2>
-          <h1 className="text-3xl font-bold text-blue-600 mt-2">
+          <h1 className="text-2xl sm:text-4xl font-extrabold text-blue-700 mt-1 sm:mt-2">
             MARCO ANTÔNIO
           </h1>
-          <p className="text-sm text-gray-600 mt-4 leading-relaxed">
+          <p className="text-xs sm:text-sm text-gray-500 mt-3 sm:mt-4 leading-relaxed">
             Tenho a alegria de convidá-lo(a) para minha formatura. A sua amizade e
-            apoio foram fundamentais durante essa jornada e seria maravilhoso
-            ter você comigo para comemorar.
+            apoio foram fundamentais durante essa jornada. Venha comemorar comigo!
           </p>
         </div>
 
-        <div className="flex justify-around items-center mt-6 text-blue-600">
+        <div className="flex flex-wrap sm:flex-nowrap justify-around items-center mt-4 sm:mt-6 text-blue-600 gap-2">
           <div className="text-center">
             <i className="fas fa-calendar-alt text-xl"></i>
-            <p className="text-lg mt-2">SAB</p>
+            <p className="text-sm sm:text-lg font-bold mt-1 sm:mt-2">SAB</p>
           </div>
           <div className="text-center">
-            <p className="text-lg font-semibold">8 FEV</p>
+            <p className="text-sm sm:text-lg font-extrabold text-blue-700">8 FEV</p>
           </div>
           <div className="text-center">
             <i className="fas fa-clock text-xl"></i>
-            <p className="text-lg mt-2">20H</p>
+            <p className="text-sm sm:text-lg font-bold mt-1 sm:mt-2">20H</p>
           </div>
         </div>
 
-        <p className="text-sm text-gray-600 mt-4">Chácara a definir</p>
+        <p className="text-xs sm:text-sm text-gray-500 mt-3 sm:mt-4">Chácara Brisa do Lago</p>
+        <a
+          href="https://google.com/maps?q=-10.2600225,-48.5031338"
+          target="_blank"
+          className="text-blue-600 underline mt-1 sm:mt-2 block text-xs sm:text-sm"
+        >
+          <i className="fas fa-map-marker-alt mr-2"></i> Como chegar?
+        </a>
 
-        <div className="mt-6 text-blue-600">
-          <i className="fas fa-scroll fa-3x"></i>
-        </div>
-
-        <div className="mt-8">
-          <p className="text-lg font-semibold text-gray-700 mb-4">
-            Confirmar presença?
+        <div className="mt-6 sm:mt-8">
+          <p className="text-sm sm:text-lg font-semibold text-gray-700 mb-2 sm:mb-4">
+            Confirmar presença:
           </p>
           <button
             onClick={handleConfirmClick}
-            className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition duration-200 mb-4"
+            className="bg-blue-600 text-white px-4 py-2 sm:px-6 sm:py-3 rounded-lg shadow-lg hover:bg-blue-700 hover:scale-105 transition-transform duration-200 mb-2 sm:mb-4 text-sm sm:text-base"
           >
             Irei!
           </button>
@@ -130,7 +132,7 @@ const ConviteCard = () => {
       </div>
 
       <button
-        className="bg-blue-600 text-white px-4 py-2 rounded-lg fixed transition duration-200 z-50"
+        className="bg-blue-600 text-white px-3 py-2 rounded-lg fixed transition duration-200 z-50"
         style={{
           top: `${buttonPos.y}px`,
           left: `${buttonPos.x}px`,

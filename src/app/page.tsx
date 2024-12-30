@@ -3,10 +3,13 @@ import ConviteCard from './components/ConviteCard';
 
 export default function Home() {
   return (
-    <div>
+    <div className="bg-gradient-to-br from-blue-50 via-blue-100 to-blue-200 min-h-screen">
       <Head>
         <title>Convite de Formatura</title>
-        <meta name="description" content="Convite de Formatura de Marco Antônio" />
+        <meta
+          name="description"
+          content="Convite de Formatura de Marco Antônio"
+        />
         <link rel="icon" href="/favicon.ico" />
         <link
           rel="stylesheet"
