@@ -17,8 +17,8 @@ export const metadata: Metadata = {
   title: "Finalmente, formando",
   description: "Site para convidar amigos e familiares para a formatura",
   openGraph: {
-    title: 'Convite para a Formatura de Marco Antônio',
-    description: 'Junte-se a nós para celebrar a formatura de Marco Antônio.',
+    title: 'Você foi convidado para a Formatura de Marco Antônio',
+    description: 'Confirme sua presença por aqui!',
     url: 'https://graduation-invitation-phi.vercel.app/',
     images: [
       {
