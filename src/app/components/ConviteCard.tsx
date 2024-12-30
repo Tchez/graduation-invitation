@@ -21,9 +21,7 @@ const ConviteCard = () => {
 
       if (cardRect) {
         const button = document.querySelector("button.fixed");
-        const buttonWidth = button ?
-          button.getBoundingClientRect().width
-          : 2;
+        const buttonWidth = button ? button.getBoundingClientRect().width : 2;
 
         setButtonPos({
           x: cardRect.left + cardRect.width / 2 - buttonWidth / 2,
@@ -31,8 +29,8 @@ const ConviteCard = () => {
         });
       } else {
         setButtonPos({
-          x: isMobile ? window.innerWidth / 2 : window.innerWidth / 2 - 80, // Ajusta posição no eixo X
-          y: isMobile ? window.innerHeight / 2 + 227 : window.innerHeight / 2 + 227, // Ajusta posição no eixo Y
+          x: isMobile ? window.innerWidth / 2 : window.innerWidth / 2 - 80,
+          y: isMobile ? window.innerHeight / 2 + 227 : window.innerHeight / 2 + 227,
         });
       }
 
@@ -104,7 +102,7 @@ const ConviteCard = () => {
           <h1 className="text-2xl sm:text-4xl font-extrabold text-blue-700 mt-1 sm:mt-2">
             MARCO ANTÔNIO
           </h1>
-          <p className="text-xs sm:text-sm text-gray-500 mt-3 sm:mt-4 leading-relaxed">
+          <p className="text-sm text-gray-500 mt-3 sm:mt-4 leading-relaxed">
             Tenho a alegria de convidá-lo(a) para minha formatura. A sua amizade e
             apoio foram fundamentais durante essa jornada. Venha comemorar comigo!
           </p>
@@ -124,23 +122,44 @@ const ConviteCard = () => {
           </div>
         </div>
 
-        <p className="text-xs sm:text-sm text-gray-500 mt-3 sm:mt-4">Chácara Brisa do Lago</p>
+        <p className="text-base text-gray-500 mt-3 sm:mt-4">Chácara Brisa do Lago</p>
         <a
-          href="https://google.com/maps?q=-10.2600225,-48.5031338"
+          href="https://www.google.com/maps/place/Ch%C3%A1cara+Brisa+do+Lago/@-9.9102858,-48.3480517,20.32z/data=!4m12!1m5!3m4!2zOcKwNTQnMzcuNyJTIDQ4wrAyMCc1Mi44Ilc!8m2!3d-9.910468!4d-48.347999!3m5!1s0x9324ebbd49ff9bb1:0xf49b80d54b53d980!8m2!3d-9.9105154!4d-48.3479512!16s%2Fg%2F11l2thm7hp?entry=ttu&g_ep=EgoyMDI0MTIxMS4wIKXMDSoASAFQAw%3D%3D"
           target="_blank"
-          className="text-blue-600 underline mt-1 sm:mt-2 block text-xs sm:text-sm"
+          rel="noopener noreferrer"
+          className="inline-flex items-center justify-center w-full sm:w-auto px-4 py-2 mt-3 sm:mt-4 text-sm font-medium text-white bg-blue-600 rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors duration-200"
         >
-          <i className="fas fa-map-marker-alt mr-2"></i> Como chegar?
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="w-5 h-5 mr-2"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M12 11c1.104 0 2-.896 2-2s-.896-2-2-2-2 .896-2 2 .896 2 2 2z"
+            />
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M12 21c-4.418 0-8-3.582-8-8 0-3.866 2.686-7.16 6.32-7.876a1 1 0 01.68 1.876C7.82 7.5 6 10.11 6 13c0 3.314 2.686 6 6 6s6-2.686 6-6c0-2.89-1.82-5.5-4.32-6.124a1 1 0 01.68-1.876C17.314 5.84 20 9.134 20 13c0 4.418-3.582 8-8 8z"
+            />
+          </svg>
+          Como chegar?
         </a>
 
-        <div className="mt-6 sm:mt-8 flex flex-col items-center gap-4">
-          <p className="text-sm sm:text-lg font-semibold text-gray-700">
+        <div className="mt-6 sm:mt-8 flex flex-col items-center">
+          <p className="text-lg font-semibold text-gray-700 mb-1 sm:mb-0">
             Confirmar presença:
           </p>
           <button
+            type="button"
             onClick={handleConfirmClick}
-            className="bg-blue-600 text-white w-full px-4 py-2 sm:px-6 sm:py-3 rounded-lg shadow-lg hover:bg-blue-700 hover:scale-105 transition-transform duration-200"
-          >
+            className="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 shadow-lg shadow-blue-500/50 dark:shadow-lg dark:shadow-blue-800/80 font-medium rounded-lg text-sm px-5 py-2 text-center hover:text-white border border-blue-700 hover:bg-blue-800 w-full sm:mt-4 mb-6 sm:mb-10 me-2 transition-transform duration-200">
             Irei!
           </button>
         </div>
