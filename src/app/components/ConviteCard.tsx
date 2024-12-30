@@ -16,16 +16,31 @@ const ConviteCard = () => {
     if (typeof window !== "undefined") {
       const isMobile = window.innerWidth <= 768;
 
-      setButtonPos({
-        x: isMobile ? window.innerWidth / 2 + 35 : window.innerWidth / 2 + 45,
-        y: isMobile ? window.innerHeight / 2 + 227 : window.innerHeight / 2 + 217,
-      });
+      const card = document.querySelector(".my-card");
+      const cardRect = card?.getBoundingClientRect();
+
+      if (cardRect) {
+        const button = document.querySelector("button.fixed");
+        const buttonWidth = button ?
+          button.getBoundingClientRect().width
+          : 2;
+
+        setButtonPos({
+          x: cardRect.left + cardRect.width / 2 - buttonWidth / 2,
+          y: cardRect.bottom - 25,
+        });
+      } else {
+        setButtonPos({
+          x: isMobile ? window.innerWidth / 2 : window.innerWidth / 2 - 80, // Ajusta posição no eixo X
+          y: isMobile ? window.innerHeight / 2 + 227 : window.innerHeight / 2 + 227, // Ajusta posição no eixo Y
+        });
+      }
 
       const handleMouseMove = (e: MouseEvent) => {
         const mouseX = e.clientX;
         const mouseY = e.clientY;
 
-        setButtonPos(prev => {
+        setButtonPos((prev) => {
           const buttonCenterX = prev.x + 60;
           const buttonCenterY = prev.y + 20;
 
@@ -34,8 +49,8 @@ const ConviteCard = () => {
           const distance = Math.sqrt(distX ** 2 + distY ** 2);
 
           if (distance < 80) {
-            const newX = prev.x + (distX > 0 ? -100 : 100);
-            const newY = prev.y + (distY > 0 ? -100 : 100);
+            const newX = prev.x + (distX > 0 ? -120 : 120);
+            const newY = prev.y + (distY > 0 ? -120 : 120);
 
             return {
               x: Math.max(0, Math.min(newX, window.innerWidth - 120)),
@@ -64,7 +79,7 @@ const ConviteCard = () => {
 
   return (
     <div className="relative flex flex-col items-center justify-center min-h-screen">
-      <div className="relative w-full max-w-md bg-white rounded-3xl shadow-xl p-6 sm:p-8 text-center z-10 mx-2 sm:mx-4 backdrop-blur-lg backdrop-brightness-95 border border-blue-200">
+      <div className="my-card relative w-11/12 sm:w-full max-w-md bg-white rounded-3xl shadow-xl p-6 sm:p-8 text-center z-10 mx-2 sm:mx-4 backdrop-blur-lg backdrop-brightness-95 border border-blue-200">
         <div className="absolute top-2 sm:top-4 left-2 sm:left-4 text-blue-600">
           <i className="fas fa-balance-scale fa-2x sm:fa-3x"></i>
         </div>
@@ -77,7 +92,7 @@ const ConviteCard = () => {
               alt="Foto do Formando (Marco Antônio)"
               width={90}
               height={90}
-              className="sm:rounded-full sm:border-4 sm:border-blue-600 mx-auto shadow-lg"
+              className="rounded-full border-4 border-blue-600 mx-auto shadow-lg"
             />
           </div>
         </div>
@@ -95,7 +110,7 @@ const ConviteCard = () => {
           </p>
         </div>
 
-        <div className="flex flex-wrap sm:flex-nowrap justify-around items-center mt-4 sm:mt-6 text-blue-600 gap-2">
+        <div className="flex flex-wrap justify-around items-center mt-4 sm:mt-6 text-blue-600 gap-2">
           <div className="text-center">
             <i className="fas fa-calendar-alt text-xl"></i>
             <p className="text-sm sm:text-lg font-bold mt-1 sm:mt-2">SAB</p>
@@ -118,13 +133,13 @@ const ConviteCard = () => {
           <i className="fas fa-map-marker-alt mr-2"></i> Como chegar?
         </a>
 
-        <div className="mt-6 sm:mt-8">
-          <p className="text-sm sm:text-lg font-semibold text-gray-700 mb-2 sm:mb-4">
+        <div className="mt-6 sm:mt-8 flex flex-col items-center gap-4">
+          <p className="text-sm sm:text-lg font-semibold text-gray-700">
             Confirmar presença:
           </p>
           <button
             onClick={handleConfirmClick}
-            className="bg-blue-600 text-white px-4 py-2 sm:px-6 sm:py-2 rounded-lg shadow-lg hover:bg-blue-700 hover:scale-105 transition-transform duration-200 mb-2 sm:mb-4 text-sm sm:text-base"
+            className="bg-blue-600 text-white w-full px-4 py-2 sm:px-6 sm:py-3 rounded-lg shadow-lg hover:bg-blue-700 hover:scale-105 transition-transform duration-200"
           >
             Irei!
           </button>
@@ -132,7 +147,7 @@ const ConviteCard = () => {
       </div>
 
       <button
-        className="bg-blue-600 text-white px-4 py-2 sm:px-6 sm:py-2 rounded-lg shadow-lg hover:bg-blue-700 hover:scale-105 mb-2 sm:mb-4 text-sm sm:text-base fixed transition duration-200 z-50"
+        className="bg-gradient-to-r from-red-500 to-red-600 text-white px-6 py-3 rounded-full shadow-lg hover:scale-105 hover:bg-red-700 mb-2 sm:mb-4 text-sm sm:text-base fixed transition duration-200 z-50"
         style={{
           top: `${buttonPos.y}px`,
           left: `${buttonPos.x}px`,
