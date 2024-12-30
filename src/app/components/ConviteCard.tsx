@@ -132,7 +132,7 @@ const ConviteCard = () => {
       </div>
 
       <button
-        className="bg-blue-600 text-white px-3 py-2 rounded-lg fixed transition duration-200 z-50"
+        className="bg-blue-600 text-white px-4 py-2 sm:px-6 sm:py-2 rounded-lg shadow-lg hover:bg-blue-700 hover:scale-105 mb-2 sm:mb-4 text-sm sm:text-base fixed transition duration-200 z-50"
         style={{
           top: `${buttonPos.y}px`,
           left: `${buttonPos.x}px`,
