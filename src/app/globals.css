@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  color-scheme: light;
+}
+
 @keyframes shake {
   0% {
     transform: translate(0, 0);

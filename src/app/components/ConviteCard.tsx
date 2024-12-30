@@ -124,7 +124,7 @@ const ConviteCard = () => {
           </p>
           <button
             onClick={handleConfirmClick}
-            className="bg-blue-600 text-white px-4 py-2 sm:px-6 sm:py-3 rounded-lg shadow-lg hover:bg-blue-700 hover:scale-105 transition-transform duration-200 mb-2 sm:mb-4 text-sm sm:text-base"
+            className="bg-blue-600 text-white px-4 py-2 sm:px-6 sm:py-2 rounded-lg shadow-lg hover:bg-blue-700 hover:scale-105 transition-transform duration-200 mb-2 sm:mb-4 text-sm sm:text-base"
           >
             Irei!
           </button>

@@ -24,7 +24,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="pt-BR" className="bg-gradient-to-br from-blue-50 via-blue-100 to-blue-200 text-black">
+
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gray-100`}
       >
